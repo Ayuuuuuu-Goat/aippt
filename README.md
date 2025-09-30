@@ -1,16 +1,3 @@
-<p align="center">
-  <img src="readme_assets/images/goat-yulu-logo.png" height="90" alt="Goat × 羽鹿 演示工坊" />
-</p>
-
-<p align="center">
-  <a href="https://discord.gg/9ZsKKxudNE">
-    <img src="https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&style=for-the-badge" alt="Join our Discord" />
-  </a>
-  &nbsp;
-  <a href="https://x.com/presentonai">
-    <img src="https://img.shields.io/badge/X-Follow%20Us-000000?logo=twitter&style=for-the-badge" alt="Follow us on X" />
-  </a>
-</p>
 
 # 赠与羽鹿的开源 AI 演示助手
 
