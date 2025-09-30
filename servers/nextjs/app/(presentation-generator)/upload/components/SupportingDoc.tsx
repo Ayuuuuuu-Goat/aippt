@@ -56,15 +56,15 @@ const SupportingDoc = ({ files, onFilesChange }: SupportingDocProps) => {
 
         const invalidFiles = droppedFiles.filter(file => !validTypes.includes(file.type));
         if (invalidFiles.length > 0) {
-            toast.error('Invalid file type', {
-                description: 'Please upload only PDF, TXT, PPTX, or DOCX files',
+            toast.error('文件类型不支持', {
+                description: '仅支持上传 PDF、TXT、PPTX 或 DOCX 文件',
             });
             return;
         }
 
         if (hasPdf && droppedFiles.some(file => file.type === 'application/pdf')) {
-            toast.error('Multiple PDF files are not allowed', {
-                description: 'Please select only one PDF file',
+            toast.error('不能同时上传多个 PDF', {
+                description: '请仅选择一个 PDF 文件',
             });
             return;
         }
@@ -77,8 +77,8 @@ const SupportingDoc = ({ files, onFilesChange }: SupportingDocProps) => {
             const updatedFiles = [...files, ...validFiles]
             onFilesChange(updatedFiles)
 
-            toast.success('Files selected', {
-                description: `${validFiles.length} file(s) have been added`,
+            toast.success('文件已添加', {
+                description: `成功添加 ${validFiles.length} 个文件`,
             })
         }
     }
@@ -96,8 +96,8 @@ const SupportingDoc = ({ files, onFilesChange }: SupportingDocProps) => {
             const updatedFiles = [...files, ...validFiles]
             onFilesChange(updatedFiles)
 
-            toast.success('Files selected', {
-                description: `${validFiles.length} file(s) have been added`,
+            toast.success('文件已添加', {
+                description: `成功添加 ${validFiles.length} 个文件`,
             })
         }
     }
@@ -113,7 +113,7 @@ const SupportingDoc = ({ files, onFilesChange }: SupportingDocProps) => {
 
     return (
         <div className="w-full">
-            <h2 className="text-[#444] font-instrument_sans pt-4 text-lg mb-4">Supporting Documents</h2>
+            <h2 className="text-[#444] font-instrument_sans pt-4 text-lg mb-4">辅助材料</h2>
             <div
                 onClick={() => fileInputRef.current?.click()}
                 className={cn(
@@ -134,12 +134,12 @@ const SupportingDoc = ({ files, onFilesChange }: SupportingDocProps) => {
 
                     <p className="text-gray-600 text-center mb-2">
                         {isDragging
-                            ? 'Drop your file here'
-                            : 'Drag and drop your file here or click below button'
+                            ? '把文件拖到这里~'
+                            : '拖拽文件至此或点击下方按钮上传'
                         }
                     </p>
                     <p className="text-gray-400 text-sm text-center mb-4">
-                        Supports PDFs, Text files, PPTX, DOCX
+                        支持 PDF、TXT、PPTX、DOCX
                     </p>
 
                     <input
@@ -162,7 +162,7 @@ const SupportingDoc = ({ files, onFilesChange }: SupportingDocProps) => {
                             hover:bg-purple-700 transition-colors duration-200
                             font-medium text-sm"
                     >
-                        Choose Files
+                        选择文件
                     </button>
                 </div>
 
@@ -171,7 +171,7 @@ const SupportingDoc = ({ files, onFilesChange }: SupportingDocProps) => {
                         <div className="p-4">
                             <div className="flex items-center justify-between mb-3">
                                 <h3 className="text-sm font-medium text-gray-700">
-                                    Selected Files ({files.length})
+                                    已选文件 ({files.length})
                                 </h3>
                             </div>
                             <div data-testid="file-list" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">

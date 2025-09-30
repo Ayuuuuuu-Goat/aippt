@@ -48,10 +48,10 @@ export const PresentationGrid = ({
       </div>
       <div className="text-center">
         <h3 className="font-semibold text-gray-700 group-hover:text-gray-900 mb-1">
-          Create {type === "slide" ? "New" : "Video"} Presentation
+          {type === "slide" ? "新建演示文稿" : "新建视频演示"}
         </h3>
         <p className="text-sm text-gray-500 group-hover:text-gray-600 px-4">
-          Start from scratch and bring your ideas to life
+          从空白开始，让灵感落地成稿
         </p>
       </div>
     </div>
@@ -87,7 +87,7 @@ export const PresentationGrid = ({
               onClick={() => window.location.reload()}
               className="text-primary hover:text-primary/80 underline"
             >
-              Try again
+              重试
             </button>
           </div>
         </div>

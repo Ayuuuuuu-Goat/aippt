@@ -124,7 +124,7 @@ const SidePanel = ({
       {/* Desktop Toggle Button - Always visible when panel is closed */}
       {!isOpen && (
         <div className="hidden xl:block fixed left-4 top-1/2 -translate-y-1/2 z-50">
-          <ToolTip content="Open Panel">
+          <ToolTip content="展开侧栏">
             <Button
               onClick={() => setIsOpen(true)}
               className="bg-white hover:bg-gray-50 shadow-lg"
@@ -138,7 +138,7 @@ const SidePanel = ({
       {/* Mobile Toggle Button */}
       {!isMobilePanelOpen && (
         <div className="xl:hidden fixed left-4 bottom-4 z-50">
-          <ToolTip content="Show Panel">
+          <ToolTip content="展开侧栏">
             <Button
               onClick={() => setIsMobilePanelOpen(true)}
               className="bg-[#5146E5] text-white p-3 rounded-full shadow-lg"
@@ -169,7 +169,7 @@ const SidePanel = ({
           >
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center justify-start gap-4">
-                <ToolTip content="Image Preview">
+                <ToolTip content="缩略图视图">
                   <Button
                     className={`${active === "grid"
                       ? "bg-[#5141e5] hover:bg-[#4638c7]"
@@ -188,7 +188,7 @@ const SidePanel = ({
                     />
                   </Button>
                 </ToolTip>
-                <ToolTip content="List Preview">
+                <ToolTip content="列表视图">
                   <Button
                     className={`${active === "list"
                       ? "bg-[#5141e5] hover:bg-[#4638c7]"

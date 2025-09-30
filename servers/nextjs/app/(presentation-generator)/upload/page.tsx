@@ -5,39 +5,38 @@ import Header from "@/app/(presentation-generator)/dashboard/components/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Presenton | Open Source AI presentation generator",
+  title: "赠与羽鹿的 AI 演示助手 | 创建演示文稿",
   description:
-    "Open-source AI presentation generator with custom layouts, multi-model support (OpenAI, Gemini, Ollama), and PDF/PPTX export. A free Gamma alternative.",
+    "赠与羽鹿的中文化开源 AI 幻灯片生成器，支持自定义模板、多模型调用（OpenAI、Gemini、Ollama），一键导出 PPTX/PDF。",
   alternates: {
     canonical: "https://presenton.ai/create",
   },
   keywords: [
-    "presentation generator",
-    "AI presentations",
-    "data visualization",
-    "automatic presentation maker",
-    "professional slides",
-    "data-driven presentations",
-    "document to presentation",
-    "presentation automation",
-    "smart presentation tool",
-    "business presentations",
+    "AI 幻灯片",
+    "赠与羽鹿",
+    "自动生成演示",
+    "中文演示助手",
+    "模板自定义",
+    "商业演示",
+    "会议汇报",
+    "PPTX 导出",
+    "PDF 导出",
   ],
   openGraph: {
-    title: "Create Data Presentation | PresentOn",
+    title: "创建演示文稿 | 赠与羽鹿的 AI 助手",
     description:
-      "Open-source AI presentation generator with custom layouts, multi-model support (OpenAI, Gemini, Ollama), and PDF/PPTX export. A free Gamma alternative.",
+      "开源中文 AI 演示助手，支持自定义模板、多模型调用以及 PPTX/PDF 导出。",
     type: "website",
     url: "https://presenton.ai/create",
-    siteName: "PresentOn",
+    siteName: "赠与羽鹿的演示助手",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Create Data Presentation | PresentOn",
+    title: "创建演示文稿 | 赠与羽鹿的 AI 助手",
     description:
-      "Open-source AI presentation generator with custom layouts, multi-model support (OpenAI, Gemini, Ollama), and PDF/PPTX export. A free Gamma alternative.",
-    site: "@presenton_ai",
-    creator: "@presenton_ai",
+      "Goat 赠与羽鹿的开源 AI 幻灯片生成器，中文界面、多模型支持。",
+    site: "@goat_studio",
+    creator: "@goat_studio",
   },
 };
 
@@ -47,7 +46,7 @@ const page = () => {
       <Header />
       <div className="flex flex-col items-center justify-center  py-8">
         <h1 className="text-3xl font-semibold font-instrument_sans">
-          Create Presentation{" "}
+          创建演示文稿
         </h1>
         {/* <p className='text-sm text-gray-500'>We will generate a presentation for you</p> */}
       </div>

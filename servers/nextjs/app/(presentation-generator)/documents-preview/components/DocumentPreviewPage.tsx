@@ -128,7 +128,7 @@ const DocumentsPreviewPage: React.FC = () => {
         });
       } catch (error) {
         console.error("Error reading files:", error);
-        toast.error("Failed to read document content");
+        toast.error("读取文档内容失败");
       }
       setDownloadingDocuments([]);
     }
@@ -137,7 +137,7 @@ const DocumentsPreviewPage: React.FC = () => {
   const handleCreatePresentation = async () => {
     try {
       setShowLoading({
-        message: "Generating presentation outline...",
+        message: "正在生成演示大纲...",
         show: true,
         duration: 40,
         progress: true,
@@ -167,11 +167,11 @@ const DocumentsPreviewPage: React.FC = () => {
       router.replace("/outline");
     } catch (error: any) {
       console.error("Error in radar presentation creation:", error);
-      toast.error("Error", {
-        description: error.message || "Error in radar presentation creation.",
+      toast.error("生成演示失败", {
+        description: error.message || "处理上传文档时出现问题，请稍后再试。",
       });
       setShowLoading({
-        message: "Error in radar presentation creation.",
+        message: "生成过程中出现错误",
         show: true,
         duration: 10,
         progress: false,
@@ -206,7 +206,7 @@ const DocumentsPreviewPage: React.FC = () => {
       <div className="h-full mr-4">
         <div className="overflow-y-auto custom_scrollbar h-full">
           <div className="h-full w-full max-w-full flex flex-col mb-5">
-            <h1 className="text-2xl font-medium mb-5">Content:</h1>
+            <h1 className="text-2xl font-medium mb-5">内容预览</h1>
             {downloadingDocuments.includes(selectedDocument) ? (
               <Skeleton className="w-full h-full" />
             ) : (
@@ -234,7 +234,7 @@ const DocumentsPreviewPage: React.FC = () => {
 
         {documentKeys.length > 0 && (
           <div className="mt-8">
-            <p className="text-xs mt-2 text-[#2E2E2E] opacity-70">DOCUMENTS</p>
+            <p className="text-xs mt-2 text-[#2E2E2E] opacity-70">已上传文件</p>
             <div className="flex flex-col gap-2 mt-6">
               {documentKeys.map((key: string) => (
                 <div
@@ -273,7 +273,7 @@ const DocumentsPreviewPage: React.FC = () => {
       <div className="flex mt-6 gap-4 font-instrument_sans">
         {!isOpen && (
           <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50">
-            <ToolTip content="Open Panel">
+            <ToolTip content="展开侧栏">
               <Button
                 onClick={() => setIsOpen(true)}
                 className="bg-[#5146E5] text-white p-3 shadow-lg"
@@ -295,7 +295,7 @@ const DocumentsPreviewPage: React.FC = () => {
             onClick={handleCreatePresentation}
             className="flex items-center gap-2 px-8 py-6 rounded-sm text-md bg-[#5146E5] hover:bg-[#5146E5]/90"
           >
-            <span className="text-white font-semibold">Next</span>
+            <span className="text-white font-semibold">下一步</span>
             <ChevronRight />
           </Button>
         </div>
