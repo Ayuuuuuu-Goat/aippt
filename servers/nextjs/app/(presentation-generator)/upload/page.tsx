@@ -5,7 +5,7 @@ import Header from "@/app/(presentation-generator)/dashboard/components/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "赠与羽鹿的 AI 演示助手 | 创建演示文稿",
+  title: "赠与羽鹿的 AI 演示助手",
   description:
     "赠与羽鹿的中文化开源 AI 幻灯片生成器，支持自定义模板、多模型调用（OpenAI、Gemini、Ollama），一键导出 PPTX/PDF。",
   alternates: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "PDF 导出",
   ],
   openGraph: {
-    title: "创建演示文稿 | 赠与羽鹿的 AI 助手",
+    title: "赠与羽鹿的 AI 演示助手",
     description:
       "开源中文 AI 演示助手，支持自定义模板、多模型调用以及 PPTX/PDF 导出。",
     type: "website",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "创建演示文稿 | 赠与羽鹿的 AI 助手",
+    title: "赠与羽鹿的 AI 演示助手",
     description:
       "Goat 赠与羽鹿的开源 AI 幻灯片生成器，中文界面、多模型支持。",
     site: "@goat_studio",

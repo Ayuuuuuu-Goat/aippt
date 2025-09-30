@@ -45,7 +45,7 @@ const UploadPage = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [config, setConfig] = useState<PresentationConfig>({
     slides: "8",
-    language: LanguageType.English,
+    language: LanguageType.ChineseSimplified,
     prompt: "",
     tone: ToneType.Default,
     verbosity: VerbosityType.Standard,
@@ -69,7 +69,27 @@ const UploadPage = () => {
    * @param value - New value for the configuration
    */
   const handleConfigChange = (key: keyof PresentationConfig, value: string) => {
-    setConfig((prev) => ({ ...prev, [key]: value }));
+    setConfig((prev) => {
+      const next = { ...prev, [key]: value };
+
+      if (key === "language") {
+        switch (value as LanguageType) {
+          case LanguageType.ChineseSimplified:
+            next.tone = ToneType.Default;
+            next.verbosity = VerbosityType.Standard;
+            break;
+          case LanguageType.English:
+            next.tone = ToneType.Casual;
+            next.verbosity = VerbosityType.Concise;
+            break;
+          default:
+            next.tone = ToneType.Default;
+            next.verbosity = VerbosityType.Standard;
+        }
+      }
+
+      return next;
+    });
   };
 
   /**

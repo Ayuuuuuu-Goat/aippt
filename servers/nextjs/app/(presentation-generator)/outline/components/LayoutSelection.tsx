@@ -175,11 +175,10 @@ const LayoutSelection: React.FC<LayoutSelectionProps> = ({
       <div className="space-y-6">
         <div className="text-center py-8">
           <h5 className="text-lg font-medium mb-2 text-gray-700">
-            No Templates Available
+            暂无可用模板
           </h5>
           <p className="text-gray-600 text-sm">
-            No presentation templates could be loaded. Please try refreshing the
-            page.
+            模板加载失败，请尝试刷新页面。
           </p>
         </div>
       </div>
@@ -199,7 +198,7 @@ const LayoutSelection: React.FC<LayoutSelectionProps> = ({
       {/* In Built Templates */}
       <div>
         <h3 className="text-lg font-semibold text-gray-900 mb-3">
-          In Built Templates
+          内置模板
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {inBuiltGroups.map((group) => (
@@ -217,12 +216,12 @@ const LayoutSelection: React.FC<LayoutSelectionProps> = ({
       <div>
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-lg font-semibold text-gray-900">
-            Custom AI Templates
+            自定义 AI 模板
           </h3>
         </div>
         {customGroups.length === 0 ? (
           <div className="text-sm text-gray-600 py-2">
-            No custom templates. Create one from "Create Template" menu.
+            暂无自定义模板，可以在“创建模板”菜单中新增。
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

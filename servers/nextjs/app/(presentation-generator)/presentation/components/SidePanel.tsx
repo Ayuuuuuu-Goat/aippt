@@ -232,7 +232,7 @@ const SidePanel = ({
                       className={`p-3 cursor-pointer rounded-lg slide-box`}
                     >
                       <span className="font-medium slide-title">
-                        Slide {index + 1}
+                        第 {index + 1} 页
                       </span>
                       <p className="text-sm slide-description">
                         {slide.content.title}

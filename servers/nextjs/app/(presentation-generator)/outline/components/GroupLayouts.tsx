@@ -71,7 +71,7 @@ const GroupLayouts: React.FC<GroupLayoutsProps> = ({
       </div>
 
       <div className="flex items-center justify-between text-sm text-gray-500">
-        <span>{layoutGroup?.length} layouts</span>
+        <span>{layoutGroup?.length} 个布局</span>
         <span
           className={`px-2 py-1 rounded text-xs ${
             group.ordered
@@ -79,7 +79,7 @@ const GroupLayouts: React.FC<GroupLayoutsProps> = ({
               : "bg-blue-100 text-blue-700"
           }`}
         >
-          {group.ordered ? "Structured" : "Flexible"}
+          {group.ordered ? "固定顺序" : "自由组合"}
         </span>
       </div>
     </div>

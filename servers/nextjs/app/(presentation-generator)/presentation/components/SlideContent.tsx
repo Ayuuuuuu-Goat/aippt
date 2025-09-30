@@ -46,7 +46,7 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
     ) as HTMLInputElement;
     const value = element?.value;
     if (!value?.trim()) {
-      toast.error("Please enter a prompt before submitting");
+      toast.error("请输入提示词再提交");
       return;
     }
     setIsUpdating(true);
@@ -60,12 +60,12 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
 
       if (response) {
         dispatch(updateSlide({ index: slide.index, slide: response }));
-        toast.success("Slide updated successfully");
+        toast.success("幻灯片更新成功");
       }
     } catch (error: any) {
       console.error("Error in slide editing:", error);
-      toast.error("Error in slide editing.", {
-        description: error.message || "Error in slide editing.",
+      toast.error("更新失败", {
+        description: error.message || "更新幻灯片时出现问题。",
       });
     } finally {
       setIsUpdating(false);
@@ -83,8 +83,8 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
      
     } catch (error: any) {
       console.error("Error deleting slide:", error);
-      toast.error("Error deleting slide.", {
-        description: error.message || "Error deleting slide.",
+      toast.error("删除失败", {
+        description: error.message || "删除幻灯片时出现问题。",
       });
     }
   };
@@ -158,7 +158,7 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
 
           {!showNewSlideSelection && (
             <div className="group-hover:opacity-100 hidden md:block opacity-0 transition-opacity my-4 duration-300">
-              <ToolTip content="Add new slide below">
+              <ToolTip content="在下方添加新幻灯片">
                 {!isStreaming && !loading && (
                   <div
                     onClick={() => {
@@ -183,7 +183,7 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
           )}
          
           {!isStreaming && !loading && (
-            <ToolTip content="Delete slide">
+            <ToolTip content="删除幻灯片">
               <div
                 onClick={() => {
                   trackEvent(MixpanelEvent.Slide_Delete_Slide_Button_Clicked, { pathname });
@@ -199,7 +199,7 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
             <div className="absolute top-2 z-20 sm:top-4 hidden md:block left-2 sm:left-4 transition-transform">
               <Popover>
                 <PopoverTrigger>
-                  <ToolTip content="Update slide using prompt">
+                  <ToolTip content="使用提示词更新此页">
                     <div
                       className={`p-2 group-hover:scale-105 rounded-lg bg-[#5141e5] hover:shadow-md transition-all duration-300 cursor-pointer shadow-md `}
                     >
@@ -223,7 +223,7 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
                     >
                       <Textarea
                         id={`slide-${slide.index}-prompt`}
-                        placeholder="Enter your prompt here..."
+                        placeholder="在这里输入提示词..."
                         className="w-full min-h-[100px] max-h-[100px] p-2 text-sm border rounded-lg focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                         disabled={isUpdating}
                         onKeyDown={(e) => {
@@ -244,7 +244,7 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
                           trackEvent(MixpanelEvent.Slide_Update_From_Prompt_Button_Clicked, { pathname });
                         }}
                       >
-                        {isUpdating ? "Updating..." : "Update"}
+                        {isUpdating ? "更新中..." : "立即更新"}
                         <SendHorizontal className="w-4 sm:w-5 h-4 sm:h-5" />
                       </button>
                     </form>
@@ -259,14 +259,14 @@ const SlideContent = ({ slide, index, presentationId }: SlideContentProps) => {
               <Popover>
                 <PopoverTrigger asChild>
                   <div className=" cursor-pointer ">
-                    <ToolTip content="Show speaker notes">
+                    <ToolTip content="查看演讲者备注">
                       <StickyNote className="text-xl text-gray-500" />
                     </ToolTip>
                   </div>
                 </PopoverTrigger>
                 <PopoverContent side="left" align="start" sideOffset={10} className="w-[320px] z-30">
                   <div className="space-y-2">
-                    <p className="text-xs font-semibold text-gray-600">Speaker notes</p>
+                    <p className="text-xs font-semibold text-gray-600">演讲者备注</p>
                     <div className="text-sm text-gray-800 whitespace-pre-wrap max-h-64 overflow-auto">
                       {slide.speaker_note}
                     </div>
