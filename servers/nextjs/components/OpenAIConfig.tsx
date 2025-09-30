@@ -67,7 +67,7 @@ export default function OpenAIConfig({
         const data = await response.json();
         setAvailableModels(data);
         setModelsChecked(true);
-        onInputChange("gpt-4.1", "openai_model");
+        onInputChange(data.includes("gpt-4.1") ? "gpt-4.1" : data[0] ?? "", "openai_model");
       } else {
         console.error('Failed to fetch models');
         setAvailableModels([]);
@@ -75,7 +75,7 @@ export default function OpenAIConfig({
       }
     } catch (error) {
       console.error('Error fetching models:', error);
-      toast.error('Error fetching models');
+      toast.error('获取模型失败，请检查 API Key 或网络');
       setAvailableModels([]);
       setModelsChecked(true);
     } finally {
@@ -96,12 +96,12 @@ export default function OpenAIConfig({
             value={openaiApiKey}
             onChange={(e) => onApiKeyChange(e.target.value)}
             className="w-full px-4 py-2.5 outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
-            placeholder="Enter your API key"
+            placeholder="请输入 OpenAI API Key"
           />
         </div>
         <p className="mt-2 text-sm text-gray-500 flex items-center gap-2">
           <span className="block w-1 h-1 rounded-full bg-gray-400"></span>
-          Your API key will be stored locally and never shared
+          API Key 仅保存在本地，不会上传到 Goat 演示工坊
         </p>
       </div>
 
@@ -115,16 +115,16 @@ export default function OpenAIConfig({
             disabled={modelsLoading || !openaiApiKey}
             className={`w-full py-2.5 px-4 rounded-lg transition-all duration-200 border-2 ${modelsLoading || !openaiApiKey
               ? "bg-gray-100 border-gray-300 cursor-not-allowed text-gray-500"
-              : "bg-white border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-2 focus:ring-blue-500/20"
+              : "bg-white border-indigo-600 text-indigo-600 hover:bg-indigo-50 focus:ring-2 focus:ring-indigo-500/20"
               }`}
           >
             {modelsLoading ? (
               <div className="flex items-center justify-center gap-2">
                 <Loader2 className="w-4 h-4 animate-spin" />
-                Checking for models...
+                正在检测可用模型...
               </div>
             ) : (
-              "Check for available models"
+              "检测可用模型"
             )}
           </button>
         </div>
@@ -134,7 +134,7 @@ export default function OpenAIConfig({
       {modelsChecked && availableModels.length === 0 && (
         <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
           <p className="text-sm text-yellow-800">
-            No models found. Please make sure your API key is valid and has access to OpenAI models.
+            未找到模型，请确认 API Key 有效并具备访问 OpenAI 模型的权限。
           </p>
         </div>
       )}
@@ -143,7 +143,7 @@ export default function OpenAIConfig({
       {modelsChecked && availableModels.length > 0 ? (
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-3">
-            Select OpenAI Model
+            选择 OpenAI 模型
           </label>
           <div className="w-full">
             <Popover
@@ -161,7 +161,7 @@ export default function OpenAIConfig({
                     <span className="text-sm font-medium text-gray-900">
                       {openaiModel
                         ? availableModels.find(model => model === openaiModel) || openaiModel
-                        : "Select a model"}
+                        : "请选择模型"}
                     </span>
                   </div>
                   <ChevronsUpDown className="w-4 h-4 text-gray-500" />
@@ -173,9 +173,9 @@ export default function OpenAIConfig({
                 style={{ width: "var(--radix-popover-trigger-width)" }}
               >
                 <Command>
-                  <CommandInput placeholder="Search models..." />
+                  <CommandInput placeholder="搜索模型..." />
                   <CommandList>
-                    <CommandEmpty>No model found.</CommandEmpty>
+                    <CommandEmpty>未找到匹配模型</CommandEmpty>
                     <CommandGroup>
                       {availableModels.map((model, index) => (
                         <CommandItem

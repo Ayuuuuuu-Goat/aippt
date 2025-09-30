@@ -74,7 +74,13 @@ export default function LLMProviderSelection({
     setButtonState({
       isLoading: false,
       isDisabled: needsModelSelection || needsApiKey || needsOllamaUrl,
-      text: needsModelSelection ? "Please Select a Model" : needsApiKey ? "Please Enter API Key" : needsOllamaUrl ? "Please Enter Ollama URL" : "Save Configuration",
+      text: needsModelSelection
+        ? "请选择模型"
+        : needsApiKey
+          ? "请输入 API Key"
+          : needsOllamaUrl
+            ? "请输入 Ollama 地址"
+            : "保存配置",
       showProgress: false
     });
 

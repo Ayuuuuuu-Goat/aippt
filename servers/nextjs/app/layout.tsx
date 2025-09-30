@@ -32,30 +32,31 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://presenton.ai"),
-  title: "献给羽鹿的开源 AI 演示助手",
+  title: "赠与羽鹿的开源 AI 演示助手",
   description:
-    "赠予羽鹿的开源 AI 幻灯片生成工具，支持多模型选择、模板自定义，以及一键导出 PPTX 与 PDF。",
+    "这是来自 Goat 的礼物——赠与羽鹿的中文化开源 AI 幻灯片生成工具，支持自定义模板、多模型调用，以及一键导出 PPTX 与 PDF。",
   keywords: [
-    "AI 幻灯片生成",
-    "演示文稿",
-    "PPT 生成",
-    "自动化会议演示",
+    "赠与羽鹿",
+    "Goat",
+    "AI 幻灯片",
+    "PPT 自动生成",
+    "中文演示助手",
     "AI 文案",
-    "幻灯片模板",
-    "一键生成 PPT",
+    "模板自定义",
+    "一键导出 PPT",
   ],
   openGraph: {
-    title: "献给羽鹿的开源 AI 演示助手",
+    title: "赠与羽鹿的开源 AI 演示助手",
     description:
-      "赠予羽鹿的开源 AI 幻灯片生成工具，支持多模型选择、模板自定义，以及一键导出 PPTX 与 PDF。",
+      "来自 Goat 的礼物：献给羽鹿的中文界面演示工坊，具备模板自定义与多模型支持。",
     url: "https://presenton.ai",
-    siteName: "羽鹿的演示助手",
+    siteName: "Goat 的赠礼",
     images: [
       {
         url: "https://presenton.ai/presenton-feature-graphics.png",
         width: 1200,
         height: 630,
-        alt: "羽鹿的演示助手",
+        alt: "赠与羽鹿的开源 AI 演示助手",
       },
     ],
     type: "website",
@@ -66,9 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "献给羽鹿的开源 AI 演示助手",
+    title: "赠与羽鹿的开源 AI 演示助手",
     description:
-      "赠予羽鹿的开源 AI 幻灯片生成工具，支持多模型选择、模板自定义，以及一键导出 PPTX 与 PDF。",
+      "全中文 UI，支持多模型与模板定制，这是 Goat 献给羽鹿的演示创作伙伴。",
     images: ["https://presenton.ai/presenton-feature-graphics.png"],
   },
 };

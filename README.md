@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="readme_assets/images/presenton-logo.png" height="90" alt="Presenton Logo" />
+  <img src="readme_assets/images/goat-yulu-logo.png" height="90" alt="Goat × 羽鹿 演示工坊" />
 </p>
 
 <p align="center">
@@ -12,10 +12,10 @@
   </a>
 </p>
 
-# Open-Source AI Presentation Generator and API (Gamma, Beautiful AI, Decktopus Alternative)
+# Goat × 羽鹿 演示工坊 · 开源 AI 幻灯片助手
 
 
-**Presenton** is an open-source application for generating presentations with AI — all running locally on your device. Stay in control of your data and privacy while using models like OpenAI and Gemini, or use your own hosted models through Ollama.
+**Goat × 羽鹿 演示工坊** 是一款完全开源的 AI 幻灯片生成工具，专为 Goat 与羽鹿打造。支持本地运行、全中文界面、灵活接入 OpenAI、Gemini、Ollama 等多种模型，让你的演示创作更加自由。
 
 __✨ Now, generate presentations with your existing PPTX file! Just upload your presentation file to create template design and then use that template to generate on brand and on design presentation on any topic.__
 
@@ -67,15 +67,15 @@ Presenton gives you complete control over your AI presentation workflow. Choose 
 ```bash
 # Apple Silicon (arm64)
 docker buildx build --platform=linux/arm64 -t presenton:arm64 .
-docker run -it --name presenton -p 5000:80 -v "${PWD}/app_data:/app_data" presenton:arm64
+docker run -it --name presenton -p 0914:80 -v "${PWD}/app_data:/app_data" presenton:arm64
 
 # Intel/AMD (amd64)
-docker run -it --name presenton -p 5000:80 -v "${PWD}/app_data:/app_data" ghcr.io/presenton/presenton:latest
+docker run -it --name presenton -p 0914:80 -v "${PWD}/app_data:/app_data" ghcr.io/presenton/presenton:latest
 ```
 
 ##### Windows (PowerShell):
 ```bash
-docker run -it --name presenton -p 5000:80 -v "${PWD}\app_data:/app_data" ghcr.io/presenton/presenton:latest
+docker run -it --name presenton -p 0914:80 -v "${PWD}\app_data:/app_data" ghcr.io/presenton/presenton:latest
 ```
 
 #### 2. Open Presenton

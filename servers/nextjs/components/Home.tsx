@@ -147,10 +147,10 @@ export default function Home() {
         {/* Branding Header */}
         <div className="text-center mb-2 mt-4 flex-shrink-0">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <img src="/Logo.png" alt="献给羽鹿的开源 AI 演示助手" className="h-12" />
+            <img src="/goat-logo.png" alt="Goat × 羽鹿 演示工坊" className="h-12" />
           </div>
           <p className="text-gray-600 text-sm">
-            献给羽鹿的开源 AI 演示助手
+            Goat × 羽鹿 演示工坊 · 为 Goat 与羽鹿打造的开源 AI 幻灯片伙伴
           </p>
         </div>
 

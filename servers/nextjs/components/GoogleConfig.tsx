@@ -64,7 +64,12 @@ export default function GoogleConfig({
         const data = await response.json();
         setAvailableModels(data);
         setModelsChecked(true);
-        onInputChange("models/gemini-2.5-flash", "google_model");
+        onInputChange(
+          data.includes("models/gemini-2.5-flash")
+            ? "models/gemini-2.5-flash"
+            : data[0] ?? "",
+          "google_model"
+        );
       } else {
         console.error('Failed to fetch models');
         setAvailableModels([]);
@@ -72,7 +77,7 @@ export default function GoogleConfig({
       }
     } catch (error) {
       console.error('Error fetching models:', error);
-      toast.error('Error fetching models');
+      toast.error('获取模型失败，请检查 API Key 或网络');
       setAvailableModels([]);
       setModelsChecked(true);
     } finally {
@@ -93,12 +98,12 @@ export default function GoogleConfig({
             value={googleApiKey}
             onChange={(e) => onApiKeyChange(e.target.value)}
             className="w-full px-4 py-2.5 outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
-            placeholder="Enter your API key"
+            placeholder="请输入 Google API Key"
           />
         </div>
         <p className="mt-2 text-sm text-gray-500 flex items-center gap-2">
-          <span className="block w-1 h-1 rounded-full bg-gray-400"></span>
-          Your API key will be stored locally and never shared
+          <span className="block w-1 h-1 rounded满" ></span>
+          API Key 仅保存在本地，不会上传到 Goat 演示工坊
         </p>
       </div>
 
